@@ -4,20 +4,20 @@
 ANT_BINARY='./apache-ant-1.9.15/bin/ant'
 
 # Adapt these variables depending on how big models you want to have
-NOOFELEMENTS_START=100
-NOOFELEMENTS_STOP=500
-NOOFELEMENTS_STEPSIZE=100
+NOOFELEMENTS_START=10000
+NOOFELEMENTS_STOP=1000000
+NOOFELEMENTS_STEPSIZE=10000
 
 # Taks definition
 
 
 callGenerator() {
-	eval "$ANT_BINARY generateTestData" > /dev/null
+	eval "$ANT_BINARY generateTestData -DnumberOfElements=$1" > /dev/null
 	eval "cat data/Stats.properties| grep \"noOfInconsistencies\" | cut -d '=' -f2"
 }
 
 callCorrLang() {
-	echo "50"
+	eval "$ANT_BINARY -logger org.apache.tools.ant.listener.ProfileLogger runCorrlang | grep \"Target runCorrlang: finished\" | cut -d '(' -f2 | cut -d 'm' -f1" 
 }
 
 callEpsilon() {
@@ -47,7 +47,7 @@ EPSILON_RUNTIME=0
 
 # Main loop
 for ((i = NOOFELEMENTS_START; i <= NOOFELEMENTS_STOP; i = i + NOOFELEMENTS_STEPSIZE )); do
-	VIOLATIONS="$(callGenerator)"
+	VIOLATIONS="$(callGenerator $i)"
 	CORRLANG_RUNTIME="$(callCorrLang)"
 	EPSILON_RUNTIME="$(callEpsilon)"
 	# You could add your tool here! You must also add the variable print to the final line of the loop

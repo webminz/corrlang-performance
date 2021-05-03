@@ -3,7 +3,6 @@
 
 
 
-   	<property name="numberOfElements" value="100"/>
    	<property name="minChilds" value="1"/>
    	<property name="maxChilds" value="5"/>
    	<property name="failPercentage" value="0.1"/>
@@ -33,11 +32,11 @@
    	</java>
    	</target>
 
-   <target name="runCorrlang" depends="generateTestData">
+   <target name="runCorrlang">
       <java jar="bins/corrlang.jar"
       fork="true"
       failonerror="true">
- 	 <arg value="familiesPersons.corr"/>
+ 	 <arg value="solutions/corrlang/familiesPersons.corr"/>
    <arg value="g:Check"/>
 	</java>
    </target>
@@ -99,6 +98,8 @@
         <epsilon.evl src="solutions/epsilon/CheckMerged.evl" failOnErrors="false" exportAsModel="true" >
         	<model ref="Merge"/>
         </epsilon.evl>
+
+        <epsilon.storeModel model="EVL" target="output/violationx.xmi" />
 
     </target>
 
