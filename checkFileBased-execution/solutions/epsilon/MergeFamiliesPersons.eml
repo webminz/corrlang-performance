@@ -1,0 +1,67 @@
+rule MergeRegistries 
+	merge l : Fam!FamilyRegister
+	with r : Pers!PersonRegister
+	into m : Merge!Registry {
+		m.families = l.families.equivalent();
+		m.persons = r.persons.equivalent();
+	}
+	
+rule MergeMales 
+	merge l : Fam!FamilyMember
+	with r : Pers!Male
+	into m : Merge!Male {
+		m.birthday = r.birthday;
+		m.fullname = r.name;
+		m.firstname = l.name;
+	}
+	
+rule MergeFemales 
+	merge l : Fam!FamilyMember
+	with r : Pers!Female
+	into m : Merge!Female {
+		m.birthday = r.birthday;
+		m.fullname = r.name;
+		m.firstname = l.name;
+	}
+	
+rule CopyUnmatchedMaleFamilyMember
+	transform l : Fam!FamilyMember
+	to m : Merge!Male {
+		guard : l.sonsInverse != null or l.fatherInverse !=  null
+		m.firstname = l.name;
+}
+
+rule CopyUnmatchedFemaleFamilyMember
+	transform l : Fam!FamilyMember
+	to m : Merge!Male {
+		guard : l.motherInverse != null or l.daughtersInverse !=  null
+		m.firstname = l.name;
+}
+
+rule CopyUnmatchedMalePerson
+	transform r : Pers!Male
+	to m : Merge!Male {
+		m.birthday = r.birthday;
+		m.fullname = r.name;
+}
+
+rule CopyUnmatchedFemalePerson
+	transform r : Pers!Female
+	to m : Merge!Female {
+		m.birthday = r.birthday;
+		m.fullname = r.name;
+}
+
+rule CopyFamily 
+	transform l : Fam!Family 
+	to m : Merge!Family {
+		m.name = l.name;
+		if (l.father != null) {
+			m.father = l.father.equivalent();
+		}
+		if (l.mother != null) {
+			m.mother = l.mother.equivalent();
+		}
+		m.sons = l.sons.equivalent();
+		m.daughters = l.daughters.equivalent();
+	}

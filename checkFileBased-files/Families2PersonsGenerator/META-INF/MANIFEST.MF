@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Families2PersonsGenerator
+Bundle-SymbolicName: Families2PersonsGenerator
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: Families2PersonsGenerator
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: Families;bundle-version="0.1.0",
+ Persons;bundle-version="0.1.0",
+ org.eclipse.emf.ecore.xmi

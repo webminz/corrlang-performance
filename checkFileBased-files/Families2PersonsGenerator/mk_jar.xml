@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project Families2PersonsGenerator">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <!-- TODO change the following two properties according to your machine -->
+    <property name="dir.workspace" value="$[[/bin/bash pwd]]"/>
+    <property name="p2.plugins" value="E.g..../home/.p2/pool/plugins"/>
+
+    <property name="dir.jarfile" value="${dir.workspace}/Families2PersonsGenerator"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/Fam2PersGen.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="Generator"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.workspace}/Families/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.emf.ecore_2.23.0.v20200630-0516.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.emf.common_2.22.0.v20210114-1734.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.core.runtime_3.20.100.v20210111-0815.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.osgi_3.16.200.v20210122-1907.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.osgi.compatibility.state_1.2.200.v20200915-2015.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.equinox.common_3.14.0.v20201102-2053.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.core.jobs_3.10.1100.v20210111-0815.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.equinox.registry_3.10.0.v20201107-1818.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.equinox.preferences_3.8.100.v20201102-2042.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.core.contenttype_3.7.900.v20210111-0918.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.equinox.app_1.5.0.v20200717-0620.jar"/>
+            <fileset dir="${dir.workspace}/Persons/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="${p2.plugins}/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
+            <fileset dir="${dir.jarfile}/bin"/>
+        </jar>
+    </target>
+</project>

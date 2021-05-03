@@ -1,0 +1,13 @@
+context Person {
+
+	constraint hasBirthday {
+		check : self.birthday != null
+		message : self.firstname +  ' has no birthday! Unmatched FamilyMember?!'
+	}
+	
+	constraint hasFamily {
+		check : self.fatherInverse != null or self.motherInverse != null or self.sonsInverse != null or self.daughtersInverse != null
+		message : self.fullname + ' has no family information! Unmatched Person?!'
+	}
+
+}
