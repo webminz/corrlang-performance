@@ -1,13 +1,13 @@
 endpoint Families {
     type FILE
-    at data/Families.families
+    at data/examples/consistent/Families.xmi
     technology ECORE
     schema metamodels/Families.ecore
 }
 
 endpoint Persons {
     type FILE
-    at data/Persons.persons
+    at data/examples/consistent/Persons.xmi
     technology ECORE
     schema metamodels/Persons.ecore
 }

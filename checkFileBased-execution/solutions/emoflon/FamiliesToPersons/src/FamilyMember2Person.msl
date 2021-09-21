@@ -1,0 +1,61 @@
+import "platform:/resource/FamiliesToPersons/src/Metamodels.msl"
+import "platform:/resource/FamiliesToPersons/src/Schema.msl"
+
+abstract tripleRule FamilyMember2Person : FamiliesToPersons {	
+	source { 
+		families : FamilyRegister {
+			++ -families->f
+		}
+		++ f : Family {
+			.name := <familyName>
+		}
+		++ fm : FamilyMember {
+			.name := <memberName>
+		}
+	}
+
+	target {
+		persons : PersonRegister {
+			++ -persons->p
+		}
+		++ p : Person {
+			.name := <personName>
+		}
+	}
+
+	correspondence {
+		families <- :FamiliesToPersons -> persons
+		++ fm <- :FamilyMemberToPerson -> p
+	}
+	
+	attributeConstraints {
+  		concat(
+			separator=" ",
+			left=<memberName>,
+			right=<familyName>,
+			combined=<personName>
+		)
+	}
+}
+
+attributeConstraint concat(
+	separator : EString, 
+	left : EString, 
+	right : EString, 
+	combined : EString
+){
+	B B B B, 
+	B B B F, 
+	B B F B,
+	B F B B,
+	B F F B,
+	B F F F,
+	B B F F,
+	B F B F
+	
+	gen:
+	
+	B F F F,
+	B B F F,
+	B F B F
+}

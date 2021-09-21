@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Families:FamilyRegister xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:Families="https://ict.hvl.no/people/patrick-stunkel/metamodels/Families.ecore">
+  <families name="Mustermann0">
+    <mother name="Manuela"/>
+  </families>
+  <families name="Mustermann1">
+    <father name="Hans"/>
+  </families>
+  <families name="Mustermann2">
+    <sons name="Ole0"/>
+  </families>
+  <families name="Mustermann3">
+    <father name="Hans"/>
+    <daughters name="Mandy0"/>
+  </families>
+</Families:FamilyRegister>

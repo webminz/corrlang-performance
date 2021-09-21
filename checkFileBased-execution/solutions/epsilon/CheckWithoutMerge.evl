@@ -1,0 +1,41 @@
+context Pers!Person {
+
+	constraint hasFamilyMember {
+		check : Fam!FamilyMember.all()
+				.exists(fm|fm.name + " " + fm.getLastname() = self.name and self.isTypeOf(Pers!Male) = fm.isMale())
+		message : self.name + ' has no matching Family Member'
+	}
+
+}
+
+context Fam!FamilyMember {
+
+
+    constraint hasPerson {
+    	check : Pers!Person.all()
+    			.exists(p|p.name = self.name + " " + self.getLastname() and self.isMale() = p.isTypeOf(Pers!Male))
+    	message : self.name + ' has no matching Person'
+    			
+    }
+}
+
+
+operation Fam!FamilyMember isMale(): Boolean {
+   return self.fatherInverse != null or self.sonsInverse  != null;
+}
+
+operation Fam!FamilyMember getLastname(): String {
+	if (self.fatherInverse != null) {
+		return self.fatherInverse.name;
+	} 
+	if (self.motherInverse  != null) {
+		return self.motherInverse.name;
+	}
+	if (self.sonsInverse  != null) {
+		return self.sonsInverse.name;
+	}
+	if (self.daughtersInverse  != null) {
+		return self.daughtersInverse.name;
+	}
+	return null;
+}

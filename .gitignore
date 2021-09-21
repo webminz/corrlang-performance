@@ -23,3 +23,7 @@
 hs_err_pid*
 runtimeComparison.csv
 checkFileBased-execution/apache-ant-1.9.15
+checkFileBased-execution/data/generated/Families.xmi
+checkFileBased-execution/data/generated/Persons.xmi
+checkResultsCorrLang.txt
+Stats.properties

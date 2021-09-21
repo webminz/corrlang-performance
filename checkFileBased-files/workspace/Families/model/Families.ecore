@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xmlns:xmi="http://www.omg.org/XMI"
-                xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="Families" nsURI="https://ict.hvl.no/people/patrick-stunkel/metamodels/Families.ecore"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Families" nsURI="https://ict.hvl.no/people/patrick-stunkel/metamodels/Families.ecore"
     nsPrefix="Families">
   <eClassifiers xsi:type="ecore:EClass" name="FamilyRegister">
     <eStructuralFeatures xsi:type="ecore:EReference" name="families" upperBound="-1"
@@ -34,4 +31,3 @@
         eOpposite="#//Family/daughters"/>
   </eClassifiers>
 </ecore:EPackage>
-    

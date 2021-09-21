@@ -1,0 +1,473 @@
+********** Running with 10 elements **************
+Buildfile: /Users/past/Documents/dev/bx/corrlang-performance/checkFileBased-execution/build.xml
+
+runEmoflon:
+     [java] Jul 30, 2021 11:02:28 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Direct driver instance 2084663827 created for server address localhost:7687
+     [java] 0    [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri '/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples'
+     [java] 68   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-io at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3-tests.jar!/' instead.
+     [java] 78   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-kernel at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3-tests.jar!/' instead.
+     [java] 2106 [main] INFO         run.FamiliesToPersons_CC_Run  - Start corr creation...
+     [java] 3973 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for constraint violations...
+     [java] 3973 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.0s
+     [java] 3973 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for positive constraint...
+     [java] 3975 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.002s
+     [java] 3987 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - The ILP to solve has 44 constraints and 26 variables (0 prefixed variables, 26 to find)
+     [java] Jul 30, 2021 11:02:33 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing driver instance 2084663827
+     [java] Jul 30, 2021 11:02:33 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing connection pool towards localhost:7687
+     [java] c Current objective function value: -30(0.004s)
+     [java] c Optimal objective function value: -30(0.009s)
+     [java] c Current objective function value: -30(0.01s)
+     [java] c Optimal objective function value: -30(0.003s)
+     [java] c Optimal objective function value: -30(0.013s)
+     [java] 4067 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - Found solution for 26 variables (0 prefixed). Solution value = 30.0
+     [java] 4135 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Your triple is inconsistent!
+     [java] 4135 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - 16 elements of your triple are inconsistent!
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total time: 2.284s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - No startup operations: 0.0s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule scheduling: 0.010000000000000002s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match selection: 0.0s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Pattern matching: 1.27s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule application: 0.559s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match reprocessing: 0.003s
+     [java] 4135 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ILP solving, deletion of inconsistent corrs: 0.183s
+     [java] 4136 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total rules applied: 26
+     [java] 4136 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rules applied: 
+     [java] 4136 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  8 @ MotherOfExistingFamilyToFemale
+     [java] 4136 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  0 @ SonToMale
+     [java] 4136 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ DaughterOfExistingFamilyToFemale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  0 @ SonOfExistingFamilyToMale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ Families2Persons
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ FatherOfExistingFamilyToMale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  8 @ MotherToFemale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ FatherToMale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ DaughterToFemale
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Elements generated:  26
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 4137 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+
+BUILD SUCCESSFUL
+Total time: 6 seconds
+********** Running with 100 elements **************
+Buildfile: /Users/past/Documents/dev/bx/corrlang-performance/checkFileBased-execution/build.xml
+
+runEmoflon:
+     [java] Jul 30, 2021 11:02:53 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Direct driver instance 2084663827 created for server address localhost:7687
+     [java] 0    [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri '/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples'
+     [java] 134  [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-io at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3-tests.jar!/' instead.
+     [java] 137  [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-kernel at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3-tests.jar!/' instead.
+     [java] 2984 [main] INFO         run.FamiliesToPersons_CC_Run  - Start corr creation...
+     [java] 8599 [main] INFO  .monitors.HeartBeatAndReportMonitor  - *********
+     [java] 8600 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Heartbeats/second: 0.54
+     [java] 8600 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Generated elements/second: 26.71
+     [java] 8601 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Applied rules/second: 26.71
+     [java] 8601 [main] INFO  .monitors.HeartBeatAndReportMonitor  - *********
+     [java] 11176 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for constraint violations...
+     [java] 11176 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.0s
+     [java] 11176 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for positive constraint...
+     [java] 11180 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.004s
+     [java] 11200 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - The ILP to solve has 438 constraints and 298 variables (0 prefixed variables, 298 to find)
+     [java] c Current objective function value: -342(0.014s)
+     [java] c cleaning 2501 clauses out of 5001 with flag 12184/5001
+     [java] c cleaning 4250 clauses out of 8500 with flag 26408/11001
+     [java] c cleaning 5625 clauses out of 11250 with flag 42953/18001
+     [java] c cleaning 6812 clauses out of 13624 with flag 61659/26000
+     [java] c cleaning 7906 clauses out of 15812 with flag 83120/35000
+     [java] c cleaning 8953 clauses out of 17906 with flag 106468/45000
+     [java] c cleaning 9977 clauses out of 19953 with flag 132482/56000
+     [java] c cleaning 10989 clauses out of 21977 with flag 160248/68001
+     [java] c cleaning 11994 clauses out of 23987 with flag 189963/81000
+     [java] c cleaning 12994 clauses out of 25993 with flag 222636/95000
+     [java] c cleaning 13999 clauses out of 28000 with flag 256424/110001
+     [java] c cleaning 15001 clauses out of 30001 with flag 292754/126001
+     [java] c cleaning 15997 clauses out of 31999 with flag 332386/143000
+     [java] c cleaning 16999 clauses out of 34004 with flag 373826/161002
+     [java] c cleaning 18002 clauses out of 36003 with flag 416657/180000
+     [java] c cleaning 19000 clauses out of 38002 with flag 462735/200001
+     [java] c cleaning 20000 clauses out of 40002 with flag 510344/221001
+     [java] c Solver timed out after 16.096s)
+     [java] c Current objective function value: -342(16.097s)
+     [java] c Solver timed out after 0.001s)
+     [java] c Solver timed out after 16.098s)
+     [java] 27400 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - Found solution for 298 variables (0 prefixed). Solution value = 342.0
+     [java] Jul 30, 2021 11:03:21 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing driver instance 2084663827
+     [java] Jul 30, 2021 11:03:21 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing connection pool towards localhost:7687
+     [java] 27501 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Your triple is inconsistent!
+     [java] 27502 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - 126 elements of your triple are inconsistent!
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total time: 24.802s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - No startup operations: 0.0s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule scheduling: 0.013000000000000001s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match selection: 0.0s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Pattern matching: 6.55s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule application: 1.573s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match reprocessing: 0.005s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ILP solving, deletion of inconsistent corrs: 16.371s
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total rules applied: 298
+     [java] 27502 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rules applied: 
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  52 @ FatherOfExistingFamilyToMale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  46 @ MotherToFemale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  52 @ FatherToMale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  34 @ DaughterToFemale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  46 @ MotherOfExistingFamilyToFemale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  16 @ SonToMale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  34 @ DaughterOfExistingFamilyToFemale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  16 @ SonOfExistingFamilyToMale
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ Families2Persons
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Elements generated:  298
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 27503 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+
+BUILD SUCCESSFUL
+Total time: 30 seconds
+********** Running with 500 elements **************
+Buildfile: /Users/past/Documents/dev/bx/corrlang-performance/checkFileBased-execution/build.xml
+
+runEmoflon:
+     [java] Jul 30, 2021 11:03:37 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Direct driver instance 2084663827 created for server address localhost:7687
+     [java] 0    [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri '/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples'
+     [java] 63   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-io at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3-tests.jar!/' instead.
+     [java] 65   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-kernel at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3-tests.jar!/' instead.
+     [java] 2121 [main] INFO         run.FamiliesToPersons_CC_Run  - Start corr creation...
+     [java] 55242 [main] INFO  .monitors.HeartBeatAndReportMonitor  - *********
+     [java] 55243 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Heartbeats/second: 0.06
+     [java] 55243 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Generated elements/second: 13.11
+     [java] 55243 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Applied rules/second: 13.11
+     [java] 55243 [main] INFO  .monitors.HeartBeatAndReportMonitor  - *********
+     [java] 103382 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for constraint violations...
+     [java] 103382 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.0s
+     [java] 103382 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Checking for positive constraint...
+     [java] 103385 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Completed in 0.003s
+     [java] 103422 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - The ILP to solve has 2022 constraints and 1390 variables (0 prefixed variables, 1390 to find)
+     [java] c Current objective function value: -1590(0.031s)
+     [java] c cleaning 2501 clauses out of 5001 with flag 19553/5001
+     [java] c cleaning 4249 clauses out of 8499 with flag 35816/11000
+     [java] c cleaning 5626 clauses out of 11251 with flag 54605/18001
+     [java] c cleaning 6812 clauses out of 13626 with flag 76167/26002
+     [java] c cleaning 7906 clauses out of 15812 with flag 100956/35000
+     [java] c cleaning 8949 clauses out of 17906 with flag 128328/45000
+     [java] c cleaning 9979 clauses out of 19957 with flag 158700/56000
+     [java] c cleaning 10989 clauses out of 21978 with flag 191302/68000
+     [java] c cleaning 11995 clauses out of 23989 with flag 226652/81000
+     [java] c cleaning 12997 clauses out of 25994 with flag 265621/95000
+     [java] c cleaning 13999 clauses out of 27997 with flag 307590/110000
+     [java] c cleaning 14995 clauses out of 29998 with flag 351491/126000
+     [java] c cleaning 16001 clauses out of 32003 with flag 397594/143000
+     [java] c cleaning 17002 clauses out of 34003 with flag 446856/161001
+     [java] c cleaning 17997 clauses out of 36000 with flag 498426/180000
+     [java] c cleaning 18999 clauses out of 38004 with flag 552317/200001
+     [java] c cleaning 20000 clauses out of 40005 with flag 609402/221001
+     [java] c cleaning 21003 clauses out of 42005 with flag 668977/243001
+     [java] c cleaning 22001 clauses out of 44001 with flag 731834/266000
+     [java] c cleaning 23000 clauses out of 46000 with flag 798951/290000
+     [java] c cleaning 24001 clauses out of 48001 with flag 866970/315001
+     [java] c cleaning 24999 clauses out of 49999 with flag 937200/341000
+     [java] c cleaning 26000 clauses out of 52001 with flag 1010286/368001
+     [java] c cleaning 27000 clauses out of 54000 with flag 1086910/396000
+     [java] c cleaning 28000 clauses out of 56001 with flag 1165568/425001
+     [java] c cleaning 29000 clauses out of 58001 with flag 1246700/455001
+     [java] c cleaning 30001 clauses out of 60001 with flag 1330362/486001
+     [java] c cleaning 31000 clauses out of 62000 with flag 1419207/518001
+     [java] c cleaning 32000 clauses out of 64000 with flag 1510872/551001
+     [java] c cleaning 33000 clauses out of 66000 with flag 1607986/585001
+     [java] c cleaning 33999 clauses out of 68000 with flag 1705924/620001
+     [java] c cleaning 34998 clauses out of 70001 with flag 1806526/656001
+     [java] c cleaning 35999 clauses out of 72003 with flag 1909800/693001
+     [java] c cleaning 37000 clauses out of 74003 with flag 2015912/731000
+     [java] c cleaning 38000 clauses out of 76003 with flag 2124884/770000
+     [java] c cleaning 39001 clauses out of 78003 with flag 2235340/810000
+     [java] c Solver timed out after 257.724s)
+     [java] c Current objective function value: -1590(257.729s)
+     [java] c Solver timed out after 0.001s)
+     [java] c Solver timed out after 257.73s)
+     [java] 361383 [main] INFO  rg.emoflon.neo.engine.ilp.ILPSolver  - Found solution for 1390 variables (0 prefixed). Solution value = 1590.0
+     [java] 361773 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - Your triple is inconsistent!
+     [java] 361773 [main] INFO  les.ilp.ILPBasedOperationalStrategy  - 746 elements of your triple are inconsistent!
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total time: 359.912s
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - No startup operations: 0.001s
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule scheduling: 0.010000000000000002s
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match selection: 0.001s
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Pattern matching: 99.32099999999998s
+     [java] 361773 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rule application: 1.8290000000000002s
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Match reprocessing: 0.007s
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ILP solving, deletion of inconsistent corrs: 258.479s
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Total rules applied: 1390
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Rules applied: 
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  236 @ FatherOfExistingFamilyToMale
+     [java] 361774 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  246 @ MotherToFemale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  236 @ FatherToMale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  116 @ DaughterToFemale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  246 @ MotherOfExistingFamilyToFemale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  96 @ SonToMale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  116 @ DaughterOfExistingFamilyToFemale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  96 @ SonOfExistingFamilyToMale
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  -  =>  2 @ Families2Persons
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  - Elements generated:  1390
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  - ********** Generation Report ************
+     [java] 361775 [main] INFO  .monitors.HeartBeatAndReportMonitor  - 
+     [java] Jul 30, 2021 11:09:39 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing driver instance 2084663827
+     [java] Jul 30, 2021 11:09:39 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing connection pool towards localhost:7687
+
+BUILD SUCCESSFUL
+Total time: 6 minutes 4 seconds
+********** Running with 1000 elements **************
+Buildfile: /Users/past/Documents/dev/bx/corrlang-performance/checkFileBased-execution/build.xml
+
+runEmoflon:
+     [java] Jul 30, 2021 11:09:58 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Direct driver instance 2084663827 created for server address localhost:7687
+     [java] 1    [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri '/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples'
+     [java] 123  [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-io at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3-tests.jar!/' instead.
+     [java] 127  [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-kernel at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3-tests.jar!/' instead.
+     [java] 2608 [main] INFO         run.FamiliesToPersons_CC_Run  - Start corr creation...
+     [java] Jul 30, 2021 11:12:42 AM org.neo4j.driver.internal.logging.JULogger warn
+     [java] WARNING: Transaction failed and will be retried in 842ms
+     [java] org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] 	at org.neo4j.driver.internal.util.Futures.blockingGet(Futures.java:143)
+     [java] 	at org.neo4j.driver.internal.InternalResult.blockingGet(InternalResult.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalResult.list(InternalResult.java:105)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.lambda$0(NeoCoreBuilder.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalSession.lambda$transaction$4(InternalSession.java:150)
+     [java] 	at org.neo4j.driver.internal.retry.ExponentialBackoffRetryLogic.retry(ExponentialBackoffRetryLogic.java:102)
+     [java] 	at org.neo4j.driver.internal.InternalSession.transaction(InternalSession.java:146)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:124)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:118)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.executeQuery(NeoCoreBuilder.java:124)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoPattern.getData(NeoPattern.java:227)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoMatch.getData(NeoMatch.java:65)
+     [java] 	at org.emoflon.neo.engine.modules.attributeConstraints.AttributeConstraintContainer.solveFilterAndMask(AttributeConstraintContainer.java:41)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.lambda$2(NeoGenerator.java:136)
+     [java] 	at java.base/java.util.HashMap.forEach(HashMap.java:1425)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.determineMatches(NeoGenerator.java:119)
+     [java] 	at org.emoflon.neo.engine.generator.Generator.generate(Generator.java:63)
+     [java] 	at run.FamiliesToPersons_CC_Run.run(FamiliesToPersons_CC_Run.java:47)
+     [java] 	at run.App.check(App.java:46)
+     [java] 	at run.App.main(App.java:27)
+     [java] 	Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:53)
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:46)
+     [java] 		at org.neo4j.driver.internal.async.inbound.ChannelErrorHandler.channelInactive(ChannelErrorHandler.java:76)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:818)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:497)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+     [java] 		at java.base/java.lang.Thread.run(Thread.java:832)
+     [java] 
+     [java] Jul 30, 2021 11:12:56 AM org.neo4j.driver.internal.logging.JULogger warn
+     [java] WARNING: Transaction failed and will be retried in 1873ms
+     [java] org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] 	at org.neo4j.driver.internal.util.Futures.blockingGet(Futures.java:143)
+     [java] 	at org.neo4j.driver.internal.InternalResult.blockingGet(InternalResult.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalResult.list(InternalResult.java:105)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.lambda$0(NeoCoreBuilder.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalSession.lambda$transaction$4(InternalSession.java:150)
+     [java] 	at org.neo4j.driver.internal.retry.ExponentialBackoffRetryLogic.retry(ExponentialBackoffRetryLogic.java:102)
+     [java] 	at org.neo4j.driver.internal.InternalSession.transaction(InternalSession.java:146)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:124)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:118)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.executeQuery(NeoCoreBuilder.java:124)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoPattern.getData(NeoPattern.java:227)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoMatch.getData(NeoMatch.java:65)
+     [java] 	at org.emoflon.neo.engine.modules.attributeConstraints.AttributeConstraintContainer.solveFilterAndMask(AttributeConstraintContainer.java:41)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.lambda$2(NeoGenerator.java:136)
+     [java] 	at java.base/java.util.HashMap.forEach(HashMap.java:1425)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.determineMatches(NeoGenerator.java:119)
+     [java] 	at org.emoflon.neo.engine.generator.Generator.generate(Generator.java:63)
+     [java] 	at run.FamiliesToPersons_CC_Run.run(FamiliesToPersons_CC_Run.java:47)
+     [java] 	at run.App.check(App.java:46)
+     [java] 	at run.App.main(App.java:27)
+     [java] 	Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:53)
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:46)
+     [java] 		at org.neo4j.driver.internal.async.inbound.ChannelErrorHandler.channelInactive(ChannelErrorHandler.java:76)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:818)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:497)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+     [java] 		at java.base/java.lang.Thread.run(Thread.java:832)
+     [java] 
+     [java] 208395 [main] ERROR on.neo.cypher.models.NeoCoreBuilder  - org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] 	at org.neo4j.driver.internal.util.Futures.blockingGet(Futures.java:143)
+     [java] 	at org.neo4j.driver.internal.InternalResult.blockingGet(InternalResult.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalResult.list(InternalResult.java:105)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.lambda$0(NeoCoreBuilder.java:128)
+     [java] 	at org.neo4j.driver.internal.InternalSession.lambda$transaction$4(InternalSession.java:150)
+     [java] 	at org.neo4j.driver.internal.retry.ExponentialBackoffRetryLogic.retry(ExponentialBackoffRetryLogic.java:102)
+     [java] 	at org.neo4j.driver.internal.InternalSession.transaction(InternalSession.java:146)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:124)
+     [java] 	at org.neo4j.driver.internal.InternalSession.writeTransaction(InternalSession.java:118)
+     [java] 	at org.emoflon.neo.cypher.models.NeoCoreBuilder.executeQuery(NeoCoreBuilder.java:124)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoPattern.getData(NeoPattern.java:227)
+     [java] 	at org.emoflon.neo.cypher.patterns.NeoMatch.getData(NeoMatch.java:65)
+     [java] 	at org.emoflon.neo.engine.modules.attributeConstraints.AttributeConstraintContainer.solveFilterAndMask(AttributeConstraintContainer.java:41)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.lambda$2(NeoGenerator.java:136)
+     [java] 	at java.base/java.util.HashMap.forEach(HashMap.java:1425)
+     [java] 	at org.emoflon.neo.engine.modules.NeoGenerator.determineMatches(NeoGenerator.java:119)
+     [java] 	at org.emoflon.neo.engine.generator.Generator.generate(Generator.java:63)
+     [java] 	at run.FamiliesToPersons_CC_Run.run(FamiliesToPersons_CC_Run.java:47)
+     [java] 	at run.App.check(App.java:46)
+     [java] 	at run.App.main(App.java:27)
+     [java] 	Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:53)
+     [java] 		at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:46)
+     [java] 		at org.neo4j.driver.internal.async.inbound.ChannelErrorHandler.channelInactive(ChannelErrorHandler.java:76)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:818)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:497)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+     [java] 		at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+     [java] 		at java.base/java.lang.Thread.run(Thread.java:832)
+     [java] 	Suppressed: org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] 		... 20 more
+     [java] 		Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+     [java] 			at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:53)
+     [java] 			at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:46)
+     [java] 			at org.neo4j.driver.internal.async.inbound.ChannelErrorHandler.channelInactive(ChannelErrorHandler.java:76)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:818)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:497)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+     [java] 			at java.base/java.lang.Thread.run(Thread.java:832)
+     [java] 	Suppressed: org.neo4j.driver.exceptions.ServiceUnavailableException: Connection to the database terminated. Please ensure that your database is listening on the correct host and port and that you have compatible encryption settings both on Neo4j server and driver. Note that the default encryption setting has changed in Neo4j 4.0.
+     [java] 		... 20 more
+     [java] 		Suppressed: org.neo4j.driver.internal.util.ErrorUtil$InternalExceptionCause
+     [java] 			at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:53)
+     [java] 			at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:46)
+     [java] 			at org.neo4j.driver.internal.async.inbound.ChannelErrorHandler.channelInactive(ChannelErrorHandler.java:76)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:389)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:354)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:241)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1405)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:262)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:248)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:901)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:818)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:497)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+     [java] 			at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+     [java] 			at java.base/java.lang.Thread.run(Thread.java:832)
+     [java] Jul 30, 2021 11:13:27 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing driver instance 2084663827
+     [java] Jul 30, 2021 11:13:27 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Closing connection pool towards localhost:7687
+     [java] 208645 [main] ERROR                             run.App  - org.emoflon.neo.cypher.common.NeoDatabaseException: Execution Error: See console log for more details.
+
+BUILD SUCCESSFUL
+Total time: 3 minutes 30 seconds
+********** Running with 5000 elements **************
+Buildfile: /Users/past/Documents/dev/bx/corrlang-performance/checkFileBased-execution/build.xml
+
+runEmoflon:
+     [java] Jul 30, 2021 11:13:46 AM org.neo4j.driver.internal.logging.JULogger info
+     [java] INFO: Direct driver instance 2084663827 created for server address localhost:7687
+     [java] 0    [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri '/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples'
+     [java] 68   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-io at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-io-2.3.3-tests.jar!/' instead.
+     [java] 69   [main] WARN  lipse.emf.mwe.utils.StandaloneSetup  - Skipping conflicting project neo4j-kernel at 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3.jar!/' and using 'archive:file:/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/Neo4jTestingExample/lib/neo4j-kernel-2.3.3-tests.jar!/' instead.
+     [java] 2361 [main] INFO         run.FamiliesToPersons_CC_Run  - Start corr creation...
+********** Running with 10000 elements **************

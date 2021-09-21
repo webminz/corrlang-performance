@@ -2,49 +2,59 @@
    <project name="CompareRuntimes" default="info" xmlns:ivy="antlib:org.apache.ivy.ant">
 
 
-
+    <property name="datadir" value="data/generated" />
    	<property name="minChilds" value="1"/>
    	<property name="maxChilds" value="5"/>
-   	<property name="failPercentage" value="0.1"/>
-
+    <property name="familiesModelFile" value="${datadir}/Families.xmi" />
+    <property name="familiesMetaModelFile" value="metamodels/Families.ecore" />
+    <property name="personsModelFile" value="${datadir}/Persons.xmi" />
+    <property name="personsMetaModelFile" value="metamodels/Persons.ecore" />
 
    	<property name="ivy.version" value="2.5.0"/>
     <property name="ivy.jar.dir" value="${basedir}/ivy"/>
     <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
 
-
+<!-- generator tasks -->
    	<target name="makeFresh">
    		<delete failonerror="false" includeEmptyDirs="true">
-  			<fileset dir="data"/>
+  			<fileset dir="${datadir}"/>
   			<fileset dir="output"/>
 		</delete>
    	</target>
 
    	<target name="generateTestData" depends="makeFresh">
-   		      <java jar="bins/Fam2PersGen.jar"
+   		      <java jar="bins/F2PGen.jar"
  				fork="true"
       			failonerror="true">
- 	 <arg value="data"/>
-   	 <arg value="${numberOfElements}"/>
+ 	 <arg value="${datadir}"/>
+   	 <arg value="${numberOfElements}"/> <!-- is given by the shell script -->
    	 <arg value="${minChilds}"/>
    	 <arg value="${maxChilds}"/>
-   	 <arg value="${failPercentage}"/>
+   	 <arg value="${inconsistencyProbability}"/> <!-- is given by the shell script -->
    	</java>
    	</target>
 
+    <target name="runGenerator" depends="generateTestData">
+        <move file="${datadir}/Families.families" tofile="${familiesModelFile}" />
+        <move file="${datadir}/Persons.persons" tofile="${personsModelFile}" />
+    </target>
+
+<!-- Tool tasks -->
+
+    <!-- CorrLang task -->
    <target name="runCorrlang">
       <java jar="bins/corrlang.jar"
       fork="true"
       failonerror="true">
- 	 <arg value="solutions/corrlang/familiesPersons.corr"/>
-   <arg value="g:Check"/>
+      	<arg value="--useConfig=solutions/corrlang/corrlang.conf"/>
+ 	 	<arg value="solutions/corrlang/familiesPersons.corr"/>
+   		<arg value="g:Check"/>
 	</java>
    </target>
 
 
-   <!-- Ivy related Tasks which is necessary to download Epsilon -->
-
-       <!-- Downloads Ivy -->
+    <!-- Ivy related Tasks which is necessary to download Epsilon -->
+    <!-- Downloads Ivy -->
     <target name="download-ivy" unless="skip.download">
         <mkdir dir="${ivy.jar.dir}"/>
         <get src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar"
@@ -80,9 +90,9 @@
     <!-- Epsilon tasks -->
     <target name="runEpsilon" depends="setup-epsilon" >
         
-        <epsilon.emf.loadModel name="Fam" modelfile="data/Families.families" metamodelfile="metamodels/Families.ecore"/>
-        <epsilon.emf.loadModel name="Pers" modelfile="data/Persons.persons" metamodelfile="metamodels/Persons.ecore"/>
-        <epsilon.emf.loadModel name="Merge" modelfile="solutions/epsilon/merged.xmi" metamodelfile="metamodels/familiesPersonsMerged.ecore"/>
+        <epsilon.emf.loadModel name="Fam" modelfile="${familiesModelFile}" metamodelfile="${familiesMetaModelFile}"/>
+        <epsilon.emf.loadModel name="Pers" modelfile="${personsModelFile}" metamodelfile="${personsMetaModelFile}"/>
+        <epsilon.emf.loadModel name="Merge" modelfile="solutions/epsilon/merged.xmi" metamodelfile="solutions/epsilon/familiesPersonsMerged.ecore"/>
 
         <epsilon.ecl src="solutions/epsilon/MatchFamiliesPersons.ecl" exportMatchTrace="traces" >
             <model ref="Fam"/>
@@ -99,8 +109,104 @@
         	<model ref="Merge"/>
         </epsilon.evl>
 
-        <epsilon.storeModel model="EVL" target="output/violationx.xmi" />
+    </target>
 
+    <!-- Alternative EpsilonSolution -->
+    <target name="runEpsilonAlt" depends="setup-epsilon">
+        <epsilon.emf.loadModel name="Fam" modelfile="${familiesModelFile}" metamodelfile="${familiesMetaModelFile}"/>
+        <epsilon.emf.loadModel name="Pers" modelfile="${personsModelFile}" metamodelfile="${personsMetaModelFile}"/>
+
+        <epsilon.evl src="solutions/epsilon/CheckWithoutMerge.evl" failOnErrors="false" exportAsModel="true" >
+            <model ref="Fam"/>
+            <model ref="Pers"/>
+        </epsilon.evl>
+
+    </target>
+
+    <!-- Emoflon tasks -->
+    <property name="emoflonFam2PersProjectDir" value="/Users/past/Documents/dev/epsilon-ocl/emoflon-neo/examples/FamiliesToPersons" />
+
+    <path id="emoflon.classpath">
+        <pathelement location="${emoflonFam2PersProjectDir}/bin"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.neo4j.adapter_1.0.0.202103291557"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.neo4j.adapter_1.0.0.202103291557/lib/neo4j-java-driver-4.1.1.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.neo4j.adapter_1.0.0.202103291557/lib/reactive-streams-1.0.3.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.core.runtime_3.20.100.v20210111-0815.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.osgi_3.16.200.v20210226-1447.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.osgi.compatibility.state_1.2.300.v20210212-1137.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.equinox.common_3.14.100.v20210212-1143.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.core.jobs_3.10.1100.v20210111-0815.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.equinox.registry_3.10.100.v20210212-1143.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.equinox.preferences_3.8.200.v20210212-1143.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.core.contenttype_3.7.900.v20210111-0918.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.equinox.app_1.5.100.v20210212-1143.jar"/>
+        <pathelement location="${p2PluginPool}/com.google.guava_30.1.0.v20210127-2300.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.xtext.xbase.lib_2.25.0.v20210301-0821.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.xtend.lib_2.25.0.v20210301-0821.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.xtend.lib.macro_2.25.0.v20210301-0821.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.emsl_1.0.0.202103291557/lib/javabdd-1.0b2.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.emsl_1.0.0.202103291557/bin"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.core.resources_3.14.0.v20210215-0934.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.common_2.22.0.v20210114-1734.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.ecore_2.23.0.v20200630-0516.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.engine_1.0.0.202103291557.jar"/>
+        <pathelement location="solutions/emoflon/lib/commons-cli-1.2.jar"/>
+        <pathelement location="solutions/emoflon/lib/commons-codec-1.8.jar"/>
+        <pathelement location="solutions/emoflon/lib/commons-lang3-3.1.jar"/>
+        <pathelement location="solutions/emoflon/lib/commons-math3-3.4.1.jar"/>
+        <pathelement location="solutions/emoflon/lib/jcommon-1.0.20.jar"/>
+        <pathelement location="solutions/emoflon/lib/jfreechart-1.0.15.jar"/>
+        <pathelement location="solutions/emoflon/lib/JMetal-4.3.jar"/>
+        <pathelement location="solutions/emoflon/lib/MOEAFramework-2.13.jar"/>
+        <pathelement location="solutions/emoflon/lib/gurobi.jar"/>
+        <pathelement location="solutions/emoflon/lib/rsyntaxtextarea.jar"/>
+        <pathelement location="${p2PluginPool}/org.apache.log4j_1.2.15.v201012070815.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.xtext_2.25.0.v20210301-0843.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
+        <pathelement location="${p2PluginPool}/org.antlr.runtime_3.2.0.v201101311130.jar"/>
+        <pathelement location="${p2PluginPool}/com.google.inject_3.0.0.v201605172100.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.mwe.core_1.6.1.v20210218-2134.jar"/>
+        <pathelement location="${p2PluginPool}/org.apache.commons.cli_1.4.0.v20200417-1444.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.mwe2.runtime_2.12.1.v20210218-2134.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.emf.mwe.utils_1.6.1.v20210218-2134.jar"/>
+        <pathelement location="${p2PluginPool}/org.eclipse.xtext.util_2.25.0.v20210301-0843.jar"/>
+        <pathelement location="${p2PluginPool}/javax.inject_1.0.0.v20091030.jar"/>
+        <pathelement location="${p2PluginPool}/org.apache.commons.logging_1.2.0.v20180409-1502.jar"/>
+        <pathelement location="${p2PluginPool}/org.apache.commons.lang_2.6.0.v201404270220.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.neocore_1.0.0.202103291557/bin"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.emf_1.0.0.202103291557.jar"/>
+        <pathelement location="${p2PluginPool}/org.apache.commons.io_2.6.0.v20190123-2029.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.emsl.ide_1.0.0.202103291557.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.emsl.ui_1.0.0.202103291557.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.victory.adapter_1.0.0.202103291557.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.engine.modules_1.0.0.202103291557/lib/gurobi.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.engine.modules_1.0.0.202103291557/lib/MOEAFramework-2.13.jar"/>
+        <pathelement location="${p2PluginPool}/org.emoflon.neo.engine.modules_1.0.0.202103291557"/>
+        <pathelement location="${p2PluginPool}/org.sat4j.core_2.3.5.v201308161310.jar"/>
+        <pathelement location="${p2PluginPool}/org.sat4j.pb_2.3.5.v201404071733.jar"/>
+    </path>
+
+
+    <target name="emoflonDBCleanup">
+        <java fork="true" dir="${emoflonFam2PersProjectDir}" classname="run.App" classpathref="emoflon.classpath">
+            <arg value="CLEAR" />
+        </java>
+    </target>
+    <target name="emoflonImport" depends="emoflonDBCleanup">
+        <java fork="true" dir="${emoflonFam2PersProjectDir}" classname="run.App" classpathref="emoflon.classpath">
+            <arg value="IMPORT" />
+            <arg value="${basedir}/${familiesMetaModelFile}" />
+            <arg value="${basedir}/${personsMetaModelFile}" />
+            <arg value="${basedir}/${familiesModelFile}" />
+            <arg value="${basedir}/${personsModelFile}" />
+        </java>
+    </target>
+    <target name="runEmoflon">
+        <java fork="true" dir="${emoflonFam2PersProjectDir}" classname="run.App" classpathref="emoflon.classpath">
+            <arg value="CHECK" />
+            <arg value="${basedir}/${familiesModelFile}" />
+            <arg value="${basedir}/${personsModelFile}" />
+        </java>
     </target>
 
 
