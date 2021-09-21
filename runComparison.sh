@@ -50,10 +50,14 @@ callEmoflonPrep() {
 }
 
 callEmoflon() {
-	if (( $1 > $EMOFLON_CUTOFF )); then
-		echo "n/a"
-	else
-		eval "$ANT_BINARY -logger org.apache.tools.ant.listener.ProfileLogger runEmoflon -Dp2PluginPool=$ECLIPSE_P2_PLUGINS_DIR | grep \"Target runEmoflon: finished\" | cut -d '(' -f2 | cut -d 'm' -f1" 2> /dev/null
+	if (( $RUN_EMOFLON = 1 )); then
+		if (( $1 > $EMOFLON_CUTOFF )); then
+			echo "n/a"
+		else
+			eval "$ANT_BINARY -logger org.apache.tools.ant.listener.ProfileLogger runEmoflon -Dp2PluginPool=$ECLIPSE_P2_PLUGINS_DIR | grep \"Target runEmoflon: finished\" | cut -d '(' -f2 | cut -d 'm' -f1" 2> /dev/null
+		fi
+	else 
+			echo "n/a"
 	fi
 }
 
